@@ -1,0 +1,43 @@
+{
+	"name": "finaqua-ide-template-migration",
+	"version": "1.0.0",
+	"description": "Generates node-red ETL flows from a CRM-to-CDH column mapping workbook",
+	"bin": {
+		"finaqua-ide-template-migration": "./dist/index.js"
+	},
+	"scripts": {
+		"dev": "tsx watch src/index.ts",
+		"typecheck": "tsc --noEmit",
+		"test": "tsx --test \"src/**/*.test.ts\"",
+		"generate": "tsx src/index.ts generate",
+		"check": "biome check .",
+		"check:apply": "biome check --write .",
+		"check:ci": "biome ci .",
+		"lint": "biome lint --write .",
+		"format": "biome format --write .",
+		"build": "tsup",
+		"prepare": "pnpm run build",
+		"prepublishOnly": "pnpm run build",
+		"schema": "tsx src/index.ts schema"
+	},
+	"files": [
+		"dist"
+	],
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.33.0",
+	"dependencies": {
+		"commander": "^14.0.3",
+		"exceljs": "^4.4.0"
+	},
+	"type": "module",
+	"devDependencies": {
+		"@biomejs/biome": "2.4.15",
+		"@types/json-schema": "^7.0.15",
+		"@types/node": "^25.6.0",
+		"tsup": "^8.5.1",
+		"tsx": "^4.21.0",
+		"typescript": "^6.0.3"
+	}
+}
